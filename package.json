@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --config=jest.config.json",
     "serve": "live-server public/",
-    "build": "webpack",
+    "build:prod": "webpack -p --env production",
+    "build:dev": "webpack",
     "dev-server": "webpack-dev-server"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "enzyme-to-json": "3.0.1",
     "jest": "^26.4.1",
     "live-server": "^1.2.1",
+    "mini-css-extract-plugin": "^0.11.0",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
