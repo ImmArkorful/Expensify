@@ -15,7 +15,7 @@ module.exports = (env) => {
   const CSSExtract = new MiniCssExtractPlugin({ filename: 'styles.css' });
   return {
     mode: 'none',
-    entry: './src/app.js',
+    entry: ['babel-polyfill','./src/app.js'],
     output: {
       path: path.join(__dirname, 'public/dist'),
       filename: 'bundle.js',
@@ -46,6 +46,20 @@ module.exports = (env) => {
               // },
             },
           ],
+        },
+        {
+          test: /\.(png|svg|jpe?g|gif)$/,
+          include: /images/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'images/',
+                publicPath: 'images/'
+              }
+            }
+          ]
         },
       ],
     },
